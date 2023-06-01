@@ -2152,70 +2152,7 @@ class SortbyRank implements Comparator<Student>{
     }
 }
 ***************************
-ender code in the first line (M/F).
-Department code in the second line(ECE, EEE, MECH, CSE, IT, CIVIL).
-Output format
-The output displays Employee ID and Name as shown in the sample output.
-
-// You are using Java
-import java.sql.*;
-import java.util.Scanner;
- class Employee  {
-	public static void main(String args[]) throws Exception {
-		String url="jdbc:mysql://localhost/ri_db";
-		String username ="test";
-		String password ="test123";
-		String query = "select *from employee where gender=? AND dept=?";
-		Scanner sc = new Scanner(System.in);
-		
-		String gender = sc.nextLine();
-		String dept=sc.nextLine();
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection(url,username,password);
-		PreparedStatement st = con.prepareStatement(query);
-		st.setString(1,gender);
-		st.setString(2,dept);
-		ResultSet rs = st.executeQuery();
-		
-		while(rs.next()) {
-			System.out.println("Employee ID : "+rs.getInt(1)+" Name : "+rs.getString(3)+" "+rs.getString(4));
-		}
-	}
-}
-************************
-The input consists of the department code(ECE, EEE, MECH, CSE, IT, CIVIL).
-Output format
-The output prints the student id and name. Refer sample input and output.
-
-// You are using Java
-import java.sql.*;
-import java.util.Scanner;
- class Employee  {
-	public static void main(String args[]) throws Exception {
-		String url="jdbc:mysql://localhost/ri_db";
-		String username ="test";
-		String password ="test123";
-		String query = "select *from student where dept=?";
-		Scanner sc = new Scanner(System.in);
-		
-		String dept=sc.nextLine();
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection(url,username,password);
-		PreparedStatement st = con.prepareStatement(query);
-		st.setString(1,dept);
-		ResultSet rs = st.executeQuery();
-		
-		while(rs.next()) {
-			System.out.println(rs.getInt(1)+" "+rs.getString(2));
-		}
-	}
-}
-****************************
-The input consists of the Stall id that has to be searched. StallBO. public Hall getStall(int id)
-Output format
-Stall details as shown in the sample output. 
-
-// You are using Java
+//stall
 import java.sql.*;
 import java.util.Scanner;
 
@@ -2274,12 +2211,76 @@ class Main {
 	}
 
 }
-**************************
-Department code in the first line.
-CGPA value in the second line.
-The output displays the Students' data in table after deletion.
 
-// You are using Java
+
+
+--------------------------------
+
+//valid password
+
+import java.sql.*;
+import java.util.Scanner;
+ class LoginValidation {
+	public static void main(String args[]) throws Exception {
+		String url="jdbc:mysql://localhost/ri_db";
+		String username ="test";
+		String password ="test123";
+		String query = "select *from userdetails where user_name=?";
+		Scanner sc = new Scanner(System.in);
+		
+		String user_name = sc.nextLine();
+		String pass_word =sc.nextLine();
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url,username,password);
+		PreparedStatement st = con.prepareStatement(query);
+		st.setString(1, user_name);
+		ResultSet rs = st.executeQuery();
+		rs.next();
+		//System.out.println(rs.getString(2));
+		if(rs.getString(2).equals(pass_word)) {
+			System.out.println("Login Successful");
+		}
+		else
+			System.out.println("Invalid username/password");
+		}
+}
+
+
+
+-----------------------------------------
+
+
+//student
+
+
+import java.sql.*;
+import java.util.Scanner;
+ class Employee  {
+	public static void main(String args[]) throws Exception {
+		String url="jdbc:mysql://localhost/ri_db";
+		String username ="test";
+		String password ="test123";
+		String query = "select *from student where dept=?";
+		Scanner sc = new Scanner(System.in);
+		
+		String dept=sc.nextLine();
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url,username,password);
+		PreparedStatement st = con.prepareStatement(query);
+		st.setString(1,dept);
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {
+			System.out.println(rs.getInt(1)+" "+rs.getString(2));
+		}
+	}
+}
+
+
+
+---------------------------------------------
+
+//teacher
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -2317,5 +2318,36 @@ class RowDelete{
 		con.close();
 	}
 }
-**************************
 
+
+
+---------------------------------------------
+
+
+
+//principal
+
+import java.sql.*;
+import java.util.Scanner;
+ class Employee  {
+	public static void main(String args[]) throws Exception {
+		String url="jdbc:mysql://localhost/ri_db";
+		String username ="test";
+		String password ="test123";
+		String query = "select *from employee where gender=? AND dept=?";
+		Scanner sc = new Scanner(System.in);
+		
+		String gender = sc.nextLine();
+		String dept=sc.nextLine();
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection(url,username,password);
+		PreparedStatement st = con.prepareStatement(query);
+		st.setString(1,gender);
+		st.setString(2,dept);
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {
+			System.out.println("Employee ID : "+rs.getInt(1)+" Name : "+rs.getString(3)+" "+rs.getString(4));
+		}
+	}
+}
